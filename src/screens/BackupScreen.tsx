@@ -12,11 +12,12 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { exportData, getDataSize } from '../services/backup';
+import { exportBarcodesToJSON, importBarcodesFromJSON, getUserBarcodes } from '../services/barcodeDb';
 
 export default function BackupScreen({ navigation }: any) {
   const { theme } = useTheme();
   const [loading, setLoading] = useState(false);
-  const [dataSize, setDataSize] = useState({ inventory: 0, shopping: 0 });
+  const [dataSize, setDataSize] = useState({ inventory: 0, shopping: 0, barcodes: 0 });
 
   useEffect(() => {
     loadDataSize();
@@ -24,7 +25,30 @@ export default function BackupScreen({ navigation }: any) {
 
   const loadDataSize = async () => {
     const size = await getDataSize();
-    setDataSize(size);
+    const barcodes = await getUserBarcodes();
+    setDataSize({ ...size, barcodes: Object.keys(barcodes).length });
+  };
+
+  const handleExportBarcodes = async () => {
+    setLoading(true);
+    const json = await exportBarcodesToJSON();
+    setLoading(false);
+    
+    Alert.alert(
+      'Экспорт штрих-кодов',
+      `Найдено ${dataSize.barcodes} штрих-кодов.\n\nJSON сохранён в консоли.`,
+      [{ text: 'OK' }]
+    );
+    console.log('Barcodes JSON:', json);
+  };
+
+  const handleImportBarcodes = () => {
+    Alert.alert(
+      'Импорт штрих-кодов',
+      'Введите JSON строку с базой штрих-кодов (в реальном приложении - выберите файл)',
+      [{ text: 'Отмена' }]
+    );
+    // В реальном приложении здесь был бы FilePicker
   };
 
   const handleExport = async () => {
@@ -74,13 +98,18 @@ export default function BackupScreen({ navigation }: any) {
             <Text style={[styles.infoLabel, { color: theme.colors.textSecondary }]}>Товаров в списке покупок:</Text>
             <Text style={[styles.infoValue, { color: theme.colors.text }]}>{dataSize.shopping}</Text>
           </View>
+          
+          <View style={styles.infoRow}>
+            <Text style={[styles.infoLabel, { color: theme.colors.textSecondary }]}>Штрих-кодов пользователя:</Text>
+            <Text style={[styles.infoValue, { color: theme.colors.text }]}>{dataSize.barcodes}</Text>
+          </View>
         </View>
 
         {/* Экспорт */}
         <View style={[styles.card, { backgroundColor: theme.colors.card }]}>
           <Text style={[styles.cardTitle, { color: theme.colors.text }]}>📤 Экспорт данных</Text>
           <Text style={[styles.cardDesc, { color: theme.colors.textSecondary }]}>
-            Сохранить все данные в файл JSON. Файл можно отправить или сохранить.
+            Сохранить все данные в файл JSON.
           </Text>
           
           <TouchableOpacity 
@@ -92,6 +121,26 @@ export default function BackupScreen({ navigation }: any) {
               <ActivityIndicator color="#fff" />
             ) : (
               <Text style={styles.actionBtnText}>Экспортировать данные</Text>
+            )}
+          </TouchableOpacity>
+        </View>
+
+        {/* Экспорт штрих-кодов */}
+        <View style={[styles.card, { backgroundColor: theme.colors.card }]}>
+          <Text style={[styles.cardTitle, { color: theme.colors.text }]}>🏷️ Экспорт штрих-кодов</Text>
+          <Text style={[styles.cardDesc, { color: theme.colors.textSecondary }]}>
+            Сохранить базу штрих-кодов в JSON для обмена с другими пользователями.
+          </Text>
+          
+          <TouchableOpacity 
+            style={[styles.actionBtn, { backgroundColor: '#3B82F6' }]}
+            onPress={handleExportBarcodes}
+            disabled={loading}
+          >
+            {loading ? (
+              <ActivityIndicator color="#fff" />
+            ) : (
+              <Text style={styles.actionBtnText}>Экспортировать штрих-коды</Text>
             )}
           </TouchableOpacity>
         </View>

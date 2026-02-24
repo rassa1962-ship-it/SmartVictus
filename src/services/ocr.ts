@@ -4,6 +4,14 @@ import { InventoryItem, Category, Room } from '../models';
 // OCR.space API (бесплатный, 500 запросов/день)
 const OCR_SPACE_API = 'https://api.ocr.space/parse/image';
 
+// Тип результата OCR
+export type OCRResult = {
+  success: boolean;
+  text?: string;
+  items?: string[];
+  error?: string;
+};
+
 // Категории по умолчанию для AI сортировки (английские ключи)
 const CATEGORY_KEYWORDS: Record<string, string[]> = {
   'dairy': ['молоко', 'кефир', 'йогурт', 'сыр', 'творог', 'сметана', 'масло', 'сливки'],

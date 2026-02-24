@@ -21,8 +21,8 @@ import {
 
 export default function NotificationsSettingsScreen({ navigation }: any) {
   const { theme } = useTheme();
-  const [expiryNotifications, setExpiryNotifications] = useState(true);
-  const [restockNotifications, setRestockNotifications] = useState(true);
+  const [expiryNotifications, setExpiryNotifications] = useState(false);
+  const [restockNotifications, setRestockNotifications] = useState(false);
   const [notifyDaysBefore, setNotifyDaysBefore] = useState(1);
   const [inventoryCount, setInventoryCount] = useState(0);
 

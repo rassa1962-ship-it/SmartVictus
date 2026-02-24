@@ -12,8 +12,10 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Room, Unit, ROOMS, UNITS, Category, CATEGORIES } from '../models';
 import { addInventoryItem } from '../services/storage';
+import { addUserBarcode } from '../services/barcodeDb';
 
-export default function AddProductScreen({ navigation }: any) {
+export default function AddProductScreen({ navigation, route }: any) {
+  const barcode = route?.params?.barcode || null;
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState<Unit>('pcs');
@@ -46,6 +48,11 @@ export default function AddProductScreen({ navigation }: any) {
         category,
         expiryDate: expiryDate.toISOString(),
       });
+
+      // Сохраняем штрих-код в пользовательскую базу
+      if (barcode) {
+        await addUserBarcode(barcode, name.trim(), category, days);
+      }
 
       Alert.alert('Успешно', 'Продукт добавлен!', [
         { text: 'OK', onPress: () => navigation.goBack() }
@@ -90,6 +97,14 @@ export default function AddProductScreen({ navigation }: any) {
       </View>
 
       <ScrollView style={styles.form} contentContainerStyle={styles.formContent}>
+        {/* Штрих-код (если есть) */}
+        {barcode && (
+          <View style={[styles.field, { backgroundColor: '#ECFDF5', padding: 12, borderRadius: 8 }]}>
+            <Text style={{ fontSize: 12, color: '#10B981' }}>_barcode Штрих-код:</Text>
+            <Text style={{ fontSize: 16, fontWeight: '600', color: '#1F2937' }}>{barcode}</Text>
+          </View>
+        )}
+
         {/* Название */}
         <View style={styles.field}>
           <Text style={styles.label}>Название</Text>
