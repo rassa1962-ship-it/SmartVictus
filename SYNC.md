@@ -58,13 +58,14 @@ export async function saveProduct(product) {
 ## План
 
 ### Сейчас
-1. Firebase как основной механизм
+1. Firebase как основной механизм (подробнее в FIREBASE_INTEGRATION.md)
 2. Кнопки экспорт/импорт (файл)
 
 ### Позже
 - Auto-backup в облако
-- Семейный шэринг (fridgeId)
+- Семейный шэринг (fridgeId) - подробнее в FIREBASE_INTEGRATION.md
 
 ---
 
 *Источник: Perplexity AI*
+*Обновлено: Firebase интеграция в FIREBASE_INTEGRATION.md*
