@@ -205,6 +205,12 @@ export default function BarcodeScannerScreen({ navigation }: any) {
           <Text style={styles.instructionText}>
             Наведите камеру на штрих-код товара
           </Text>
+          <TouchableOpacity 
+            style={styles.smartCameraBtn}
+            onPress={() => navigation.navigate('SmartCamera')}
+          >
+            <Text style={styles.smartCameraBtnText}>📷 Умная камера (OCR)</Text>
+          </TouchableOpacity>
         </View>
       )}
     </SafeAreaView>
@@ -388,5 +394,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 20,
+    marginBottom: 16,
+  },
+  smartCameraBtn: {
+    backgroundColor: '#3B82F6',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 25,
+  },
+  smartCameraBtnText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
   },
 });

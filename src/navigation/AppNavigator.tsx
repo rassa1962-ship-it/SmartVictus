@@ -14,6 +14,7 @@ import EditProductScreen from '../screens/EditProductScreen';
 import BarcodeScannerScreen from '../screens/BarcodeScannerScreen';
 import NotificationsSettingsScreen from '../screens/NotificationsSettingsScreen';
 import BackupScreen from '../screens/BackupScreen';
+import SmartCameraScreen from '../screens/SmartCameraScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -77,6 +78,7 @@ export default function AppNavigator() {
       <Stack.Screen name="AddProduct" component={AddProductScreen} />
       <Stack.Screen name="EditProduct" component={EditProductScreen} />
       <Stack.Screen name="BarcodeScanner" component={BarcodeScannerScreen} />
+      <Stack.Screen name="SmartCamera" component={SmartCameraScreen} />
       <Stack.Screen name="History" component={HistoryScreen} />
       <Stack.Screen name="NotificationsSettings" component={NotificationsSettingsScreen} />
       <Stack.Screen name="Backup" component={BackupScreen} />
