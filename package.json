@@ -1,7 +1,23 @@
 {
   "name": "smartvictus",
   "version": "1.0.0",
+  "description": "Smart food tracking app for managing groceries and expiry dates",
   "main": "index.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rassa1962-ship-it/SmartVictus.git"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "food",
+    "expiry",
+    "fridge",
+    "inventory",
+    "smart"
+  ],
+  "author": "",
+  "license": "MIT",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",

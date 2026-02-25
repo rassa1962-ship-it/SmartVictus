@@ -1,7 +1,9 @@
 {
   "expo": {
     "name": "SmartVictus",
-    "slug": "SmartVictus",
+    "slug": "smartvictus",
+    "description": "Smart food tracking app for managing groceries and expiry dates",
+    "githubUrl": "https://github.com/rassa1962-ship-it/SmartVictus",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

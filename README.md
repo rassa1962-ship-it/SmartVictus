@@ -1,123 +1,132 @@
 # SmartVictus 🏠
 
-Умное приложение для управления продуктами и сроками годности.
+Smart food tracking app for managing groceries and expiry dates. Built with React Native (Expo).
 
-## 📱 Описание
+[![React Native](https://img.shields.io/badge/React%20Native-Expo-blue?style=flat&logo=react)](https://expo.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?style=flat&logo=typescript)](https://www.typescriptlang.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-SmartVictus помогает отслеживать сроки годности продуктов в вашем холодильнике, кладовке и морозилке. Никогда не забывайте о скоропортящихся продуктах!
+## 📱 About
 
-## ✨ Функции
+SmartVictus helps you track product expiry dates in your fridge, pantry, and freezer. Never forget about perishable food again!
 
-### Текущие возможности
-- 📦 **Инвентарь** - хранение списка продуктов с указанием места хранения
-- ⏰ **Сроки годности** - отслеживание сроков годности продуктов
-- 🛒 **Список покупок** - планирование покупок
-- 📊 **Главная страница** - обзор продуктов с истекающим сроком
-- 🔍 **Поиск** - поиск продуктов по названию
-- 📂 **Категории** - группировка продуктов по категориям
-- ✏️ **Редактирование** - изменение данных о продукте
-- 📜 **История** - логирование действий
-- 📷 **Сканер штрих-кодов** - сканирование и автозаполнение
-- 🌙 **Тёмная тема** - поддержка светлой и тёмной темы
-- 🔔 **Push-уведомления** - напоминания о сроке годности
-- ⚙️ **Настройки** - настройка уведомлений и темы
+**Available on:** iOS, Android
 
-### Планируемые функции
+## ✨ Features
 
-#### Фаза 1 - Основное (1-2 недели)
-- [x] Категории продуктов (молочные, мясо, овощи и т.д.)
-- [x] Поиск и фильтрация в инвентаре
-- [x] Редактирование продуктов
-- [x] История изменений
+### Current Capabilities
+- 📦 **Inventory Management** - Track products across multiple storage locations
+- ⏰ **Expiry Tracking** - Monitor expiration dates with visual indicators
+- 🛒 **Shopping List** - Plan your purchases
+- 📊 **Dashboard** - Overview of expiring products
+- 🔍 **Search** - Find products by name
+- 📂 **Categories** - Organize products by category (dairy, meat, vegetables, etc.)
+- ✏️ **Edit Products** - Modify product details
+- 📜 **History** - Action logging
+- 📷 **Barcode Scanner** - Scan and auto-fill product data
+- 🌙 **Dark Theme** - Light and dark mode support
+- 🔔 **Push Notifications** - Reminders before products expire
+- ⚙️ **Settings** - Configure notifications and theme
 
-#### Фаза 2 - Уведомления (2-3 недели)
-- [x] Push-уведомления о скором истечении срока
-- [x] Настройки уведомлений
-- [x] Уведомления о необходимости пополнения запасов
-- [x] Настраиваемые напоминания
+### Smart Features
+- 🧠 **AI Auto-Sorting** - Automatic categorization using AI
+- 📷 **OCR Receipt Scanning** - Scan receipts with ocr.space (free)
+- 🔎 **Open Food Facts API** - Automatic product data lookup
+- 📤 **Export/Import** - Backup and restore data
 
-#### Фаза 3 - Сканирование (3-4 недели)
-- [x] Сканирование штрих-кодов
-- [x] Автозаполнение данных о продукте
+## 🚀 Getting Started
 
-#### Фаза 4 - Доп. функции
-- [x] Экспорт/импорт данных
-- [ ] Улучшение дизайна
-- [ ] Виджеты на главном экране (документация в WIDGETS.md)
-- [x] Синхронизация между устройствами (Firebase - подробнее в FIREBASE_INTEGRATION.md)
-- [x] Семейный доступ (family sharing) к холодильнику
-- [x] Тёмная тема
-- [ ] Создать GitHub репозиторий
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Expo Go (for mobile testing)
 
-#### Фаза 5 - Умный ввод (AI/OCR)
-- [x] OCR сканирование чеков (ocr.space - бесплатно)
-- [ ] OCR сканирование чеков (TabScanner - 200 сканов/мес бесплатно, быстрее)
-- [x] Распознавание продуктов с фото
-- [x] AI автосортировка по категориям
-- [x] Интеграция с Open Food Facts API
-- [ ] Интеграция с ean-online.ru (русская база, платно)
-
-#### Фаза 5б - Умные прогнозы
-- [ ] Динамическая корректировка срока годности (по истории пользователя)
-- [ ] Прогноз "скоро испортится" с учетом привычек
-- [ ] Прогноз потребления ("закончится через N дней")
-- [ ] Контекстные советы и рекомендации
-
-#### Фаза 6 - Сообщество (Community)
-- [ ] Telegram бот для поиска штрих-кодов (бесплатно!)
-- [ ] Облачная синхронизация между пользователями
-- [ ] Обмен базами штрих-кодов между пользователями
-- [ ] Рецепты приготовления (TheMealDB API - подробнее в RECIPES.md)
-- [ ] "Что приготовить из того, что скоро испортится"
-- [ ] Аналитика цен (отслеживание изменений)
-- [ ] Рейтинги и отзывы на продукты
-- [ ] Публичные списки покупок
-
-*Мечта: Создать сообщество умного потребления, где люди делятся базами данных, рецептами, аналитикой цен и помогают друг другу экономить и питаться лучше!*
-
-## 🚀 Запуск
+### Installation
 
 ```bash
-# Установить зависимости
+# Clone the repository
+git clone https://github.com/rassa1962-ship-it/SmartVictus.git
+cd SmartVictus
+
+# Install dependencies
 npm install
 
-# Запустить
+# Start the development server
 npx expo start
 
-# Запустить для Android
+# Run on Android
 npx expo start --android
+
+# Run on iOS
+npx expo start --ios
 ```
 
-## 📂 Структура проекта
+## 📂 Project Structure
 
 ```
 SmartVictus/
 ├── src/
-│   ├── models/          # Модели данных
-│   ├── navigation/      # Навигация
-│   ├── screens/        # Экраны приложения
+│   ├── models/           # Data models and types
+│   ├── navigation/       # React Navigation setup
+│   ├── screens/          # App screens
 │   │   ├── DashboardScreen.tsx
 │   │   ├── InventoryScreen.tsx
 │   │   ├── ShoppingListScreen.tsx
 │   │   ├── AddProductScreen.tsx
-│   │   └── EditProductScreen.tsx
-│   └── services/       # Сервисы (storage)
-├── App.tsx             # Главный компонент
-├── CHEATSHEET.md       # Шпаргалка
-└── README.md           # Этот файл
+│   │   ├── EditProductScreen.tsx
+│   │   ├── BarcodeScannerScreen.tsx
+│   │   ├── SmartCameraScreen.tsx
+│   │   ├── HistoryScreen.tsx
+│   │   ├── SettingsScreen.tsx
+│   │   └── BackupScreen.tsx
+│   ├── services/         # Business logic
+│   │   ├── storage.ts    # AsyncStorage wrapper
+│   │   ├── notifications.ts
+│   │   ├── backup.ts
+│   │   ├── barcodeDb.ts
+│   │   └── ocr.ts
+│   └── context/          # React Context (theme)
+├── App.tsx              # Main app component
+└── package.json
 ```
 
-## 🛠 Технологии
+## 🛠 Tech Stack
 
-- React Native (Expo)
-- TypeScript
-- React Navigation
-- AsyncStorage
+- **Framework:** React Native (Expo SDK 54)
+- **Language:** TypeScript
+- **Navigation:** React Navigation 7
+- **Storage:** AsyncStorage
+- **APIs:** Open Food Facts, ocr.space
 
-## 📄 Лицензия
+## 🔜 Roadmap
 
-MIT
+### Phase 1 - Firebase Sync (In Progress)
+- [ ] Firebase Authentication (email/password)
+- [ ] Cloud sync between devices
+- [ ] Family sharing (multiple users per fridge)
+
+### Phase 2 - Smart Predictions
+- [ ] Dynamic expiry date adjustment
+- [ ] Consumption predictions
+- [ ] Smart recommendations
+
+### Phase 3 - Community
+- [ ] Recipe suggestions (TheMealDB API)
+- [ ] "What to cook from expiring items"
+- [ ] Telegram bot for barcode lookup
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) first.
 
 ---
 
-*SmartVictus - ваш умный помощник на кухне!*
+*SmartVictus - Your smart kitchen assistant!*
+
+## 🇷🇺 Russian README
+
+Русская версия описания доступна в [README-RU.md](README-RU.md)
