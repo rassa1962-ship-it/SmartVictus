@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.2.0",
+    "@react-native-firebase/auth": "^23.8.6",
+    "@react-native-firebase/firestore": "^23.8.6",
     "@react-navigation/bottom-tabs": "^7.14.0",
     "@react-navigation/native": "^7.1.28",
     "@react-navigation/native-stack": "^7.13.0",
@@ -37,6 +39,7 @@
     "expo-notifications": "~0.32.16",
     "expo-sharing": "~14.0.8",
     "expo-status-bar": "~3.0.9",
+    "firebase": "^12.9.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-native": "0.81.5",
